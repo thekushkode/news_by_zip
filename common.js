@@ -24,13 +24,13 @@ function saveToNewsList(url) {
             console.log(response.data);
             let news = response.data;
             let newsListJSON = localStorage.getItem("newslist");
-            let newslist = JSON.parse(watchlistJSON);
+            let newslist = JSON.parse(newslistJSON);
             if (newslist === null) {
                 newslist = [];
             };
             newslist.push(news);
-            newslistJSON = JSON.stringify(newslist);
-            localStorage.setItem("newslist", newslistJSON);
+            newsListJSON = JSON.stringify(newslist);
+            localStorage.setItem("newslist", newsListJSON);
         })
 };
 
@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", function () {
         let urlEncodedSearchString = encodeURIComponent($searchString)
         axios.get("http://newsapi.org/v2/everything?from=2020-04-04&apiKey=63dc9736629747c99b0094c3e0afb20e&q=" + urlEncodedSearchString)
             .then(function (response) {
-                newsContainer.innerHTML = renderNews(response.data.Search);
+                newsContainer.innerHTML = renderNews(response.data.articles);
             })
     })
 });
