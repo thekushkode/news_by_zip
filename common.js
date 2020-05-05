@@ -19,7 +19,7 @@ const renderNews = function (newsArray) {
 };
 
 function saveToNewsList(url) {
-    axios.get(`http://newsapi.org/v2/everything?from=2020-04-04&apiKey=63dc9736629747c99b0094c3e0afb20e&i=${imdbID}`)
+    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&i=${url}`)
         .then(response => {
             console.log(response.data);
             let news = response.data;
@@ -37,11 +37,14 @@ function saveToNewsList(url) {
 window.addEventListener("DOMContentLoaded", function () {
     myForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const $searchString = $(".search-bar").val();
+        let zipcode = document.querySelector(".form-control").value;
+        axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
+        let $searchString = data.data.city;
         let urlEncodedSearchString = encodeURIComponent($searchString)
-        axios.get("http://newsapi.org/v2/everything?from=2020-04-04&apiKey=63dc9736629747c99b0094c3e0afb20e&q=" + urlEncodedSearchString)
+        axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
             .then(function (response) {
                 newsContainer.innerHTML = renderNews(response.data.articles);
             })
+        })
     })
 });
