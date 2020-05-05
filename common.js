@@ -5,11 +5,13 @@ const renderNews = function (newsArray) {
     let newsHtmlArray = newsArray.map(function (currentStory) {
         return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <div class="card" style="width: 100%;">
-                        <img src=${currentStory.urlToImage} id="0" class="card-img-top" alt="${currentStory.title}">
+                        <a href="${currentStory.url}"><img src=${currentStory.urlToImage} id="0" class="card-img-top" alt="${currentStory.title}"></a>
                         <div class="card-body">
                             <h5 class="card-title">${currentStory.title}</h5>
                             <p class="card-text">Author: ${currentStory.author}</p>
                             <p class="card-text">Published: ${currentStory.publishedAt}</p>
+                            <button  id="readstory" class="btn btn-secondary" onclick="readStory('${currentStory.url}')">Read Story</button>
+                            <hr>
                             <button  class="btn btn-primary" onclick="saveToNewsList('${currentStory.url}')">Add Story</button>
                         </div>
                     </div>
@@ -18,20 +20,21 @@ const renderNews = function (newsArray) {
     return newsHtmlArray.join("");
 };
 
+const readStory = function(url) {
+    window.location.assign(url);
+};
+
+
 function saveToNewsList(url) {
-    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&i=${url}`)
-        .then(response => {
-            console.log(response.data);
-            let news = response.data;
-            let newsListJSON = localStorage.getItem("newslist");
-            let newslist = JSON.parse(newslistJSON);
-            if (newslist === null) {
-                newslist = [];
-            };
-            newslist.push(news);
-            newsListJSON = JSON.stringify(newslist);
-            localStorage.setItem("newslist", newsListJSON);
-        })
+    let news = url;
+    let newsListJSON = localStorage.getItem("newslist");
+    let newslist = JSON.parse(newsListJSON);
+    if (newslist === null) {
+        newslist = [];
+    };
+    newslist.push(news);
+    newsListJSON = JSON.stringify(newslist);
+    localStorage.setItem("newslist", newsListJSON);
 };
 
 window.addEventListener("DOMContentLoaded", function () {
