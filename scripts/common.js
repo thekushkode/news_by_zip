@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         let $searchString = data.data.city;
         let urlEncodedSearchString = encodeURIComponent($searchString)
-        axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+        axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "+" + category)
             .then(function (response) {
                 newsContainer.innerHTML = renderNews(response.data.articles);
                 newsData = response.data.articles;
@@ -79,15 +79,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
         })
     })
-
-
-
-
-
-
-
-
- 
 });
 
 
