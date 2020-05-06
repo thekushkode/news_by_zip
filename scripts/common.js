@@ -11,7 +11,7 @@ const renderNews = function (newsArray) {
                                 <h5 class="card-title">${currentStory.title}</h5>
                                 <p class="card-text">Author: ${currentStory.author}</p>
                                 <p class="card-text">Published: ${currentStory.publishedAt}</p>
-                                <button  class="btn btn-secondary" onclick="readStory('${currentStory.url}')">Read Story</button>
+                                <button  class="btn btn-danger" onclick="readStory('${currentStory.url}')">Read Story</button>
                                 <button  class="btn btn-primary" onclick="saveToNewsList('${i}')">Add Story</button>
                                 </div>
                         </div>
