@@ -25,17 +25,23 @@ window.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         let zipcode = document.querySelector(".form-control").value;
         axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
-
             let $searchString = data.data.city;
             let urlEncodedSearchString = encodeURIComponent($searchString)
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
-                .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-
+            if (!category) {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            } else {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            }
         })
-    })
+    });
 });
 
 function saveToNewsList(index) {
@@ -54,28 +60,18 @@ const readStory = function (url) {
     window.location.assign(url);
 };
 
-let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"]
+let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
 let dropDown = document.getElementById("dropdown");
-let category
+let category;
 dropDown.addEventListener("change", event => {
-    category = event.target.value
-    return category
-})
+    category = event.target.value;
+});
 
 
 function createDropdownValues(element) {
     let interestOptions = document.createElement("option");
     interestOptions.setAttribute("value", element);
-
-    interestOptions.textContent = element
-
-    dropDown.appendChild(interestOptions)
-
-}
-
-
-interests.map(createDropdownValues)
-
-
-
-
+    interestOptions.textContent = element;
+    dropDown.appendChild(interestOptions);
+};
+interests.map(createDropdownValues);
