@@ -38,4 +38,9 @@
     animation-name: customticker;
     -webkit-animation-duration: 7s;
     animation-duration: 7s;
-  }
+  } 
+
+  h2{ font-family: "Fjalla One";  
+    color: black; 
+    background-color: white;
+}
