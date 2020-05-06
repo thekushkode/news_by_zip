@@ -1,0 +1,46 @@
+
+
+
+
+/* CSS for the ticker animation */
+/* Specifying the name for animation keyframes and keyframes themselves */
+@keyframes customticker {
+    0% {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  
+  
+  /* Formatting the full-width ticker wrapper background and font color */
+  #tickerwrap {
+    background-color: red; 
+    font-size: 25px; 
+    color: seashell;  
+    font-family: 'Fjalla One', sans-serif;
+  }
+  
+  
+  /* Formatting the ticker content background, font color, padding and exit state */
+  #ticker {
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: customticker;
+    animation-name: customticker;
+    -webkit-animation-duration: 7s;
+    animation-duration: 7s;
+  } 
+
+  h2{ font-family: "Fjalla One";  
+    color: black; 
+    background-color: white;
+}
