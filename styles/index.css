@@ -43,4 +43,33 @@
   h2{ font-family: "Fjalla One";  
     color: black; 
     background-color: white;
+} 
+
+.weather-container{ 
+    background-color: #808B96 ;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+} 
+
+.card{  
+    margin-top: 20px;
+    border-style: none;
 }
+
+.card-text{ 
+    text-align: center; 
+    font-family: "Fjalla One";
+} 
+.card-title{ 
+    text-align: center; 
+    font-family: "Fjalla One"; 
+    font-weight: bold;
+} 
+.card-body{ 
+    border-style: none;
+}  
+
+
+
