@@ -50,7 +50,8 @@
     display: flex; 
     flex-direction: row; 
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+    width: 80%;
 } 
 
 .card{  
@@ -71,5 +72,25 @@
     border-style: none;
 }  
 
+#top-videos-section{ 
+   background-color:black; 
+   display: flex; 
+   flex-direction: column; 
+   
+   width: 20%; 
+   
+}  
+.video_main_header{ 
+    font-family: "Fjalla One"; 
+    color:white;  
+    text-align: center;
+}
+#videos{ 
+    background-color: black;  
+;
 
-
+}
+#flex_box-row{
+    display: flex; 
+    flex-direction: row; 
+}
