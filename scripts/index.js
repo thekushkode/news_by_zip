@@ -18,7 +18,7 @@ const renderWeather = function(data) {
             <div class="card-body">
                 <h5 class="card-title">Temp: ${weatherData["temperature"]}</h5>
                 <p class="card-text">${weatherData["weather_descriptions"][0]}</p>
-                <p class="card-text">Precip: ${weatherData["precip"]}%</p>
+                <p class="card-text">Precipitation: ${weatherData["precip"]}%</p>
                 <p class="card-text">Humidity: ${weatherData["humidity"]}</p>
                 <p class="card-text">Wind Speed: ${weatherData["wind_speed"]}mph</p>
             </div>
