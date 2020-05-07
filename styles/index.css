@@ -1,5 +1,5 @@
 body{ font-family: "Fjalla ONe"; 
-overflow: hidden;}
+}
 
 @keyframes customTicker {
   0% {
@@ -97,25 +97,30 @@ option{
     background-color: whitesmoke;
 }
 
-.weather-container{ 
+.news-container{ 
 
     background-color:black ;
     display: flex; 
     flex-direction: row; 
     justify-content: center;
     align-items: center; 
-    width: 80%; 
+    width: 75%; 
     border-right: white solid 20px; 
 } 
 
 .card{  
     margin-top: 20px;
-    border-style: none;
+    border-style: none; 
+    width: 200px!important; 
+    height: 270px!important;
 }
 
 .card-text{ 
     text-align: center; 
-    font-family: "Fjalla One";
+    font-family: "Fjalla One";  
+    font-size: 15px!important;  
+    word-spacing: 2px!important;
+
 } 
 .card-title{ 
     text-align: center; 
@@ -123,7 +128,8 @@ option{
     font-weight: bold;
 } 
 .card-body{ 
-    border-style: none;
+    border-style: none; 
+    height: 70%!important;
 }  
 
 #top-videos-section{ 
@@ -131,7 +137,7 @@ option{
     display: flex; 
     flex-direction: column; 
     
-    width: 20%;  
+    width: 25%;  
     justify-content: space-evenly; 
     justify-items: center; 
     text-align: center;
@@ -160,10 +166,18 @@ option{
     flex-direction: row; 
 }
 
+.weather-container{ 
+    width: 200px; 
+    height: 300px;
+}
 
 #button-div {
   display: flex;
   justify-content: center;
   margin: 10px 0 20px 0;
 
+} 
+
+footer{ 
+    height: 25%;
 }
