@@ -12,104 +12,87 @@
 
 <body>
     <header>
-
-
         <div class="ticker-wrap">
             <div class="ticker">
                 <div class="ticker__item">
-                    <p id="stocks">Your #1 Source of Live, Local, & Late Breaking News!</p>
+                    <p id="stocks">Your #1 Source of Live, Local, & Late Breaking News! Today's Stock Prices:</p>
                 </div>
             </div>
         </div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 header text-center">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a id="ziplogo" class="navbar-brand" href="index.html" >ZipNews</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <form class="form-inline">
-                                <ul class="navbar-nav">
-                                    <a class="nav-link" href="saved_stories.html"> </a>
-                                    <a class="navbar-brand" href="saved_stories.html">Saved Stories</a>
-                                    </button>
-                            </form> 
-                            <form class="form-inline">
-                                <ul class="navbar-nav">
-                                    <a class="nav-link" href="saved_stories.html"> </a>
-                                        <a class="navbar-brand" href="saved_stories.html">Saved Stories</a>
-                                    </button>
-                            </form> 
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
+        <nav id="navvy" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">ZipNews</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="saved_stories.html">Saved Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="covid.html">Covid-19</a>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
     </header>
-    <div class="container">
-        <div class="row">
-
-
+    <main>
+        <div id="button-div">
+            <button id="b1" type="button" class="btn btn-primary ml-auto mr-auto" value="sports">Sports</button>
+            <button id="b2" type="button" class="btn btn-secondary ml-auto mr-auto"
+                value="entertainment">Entertainment</button>
+            <button id="b3" type="button" class="btn btn-success ml-auto mr-auto" value="technology">Technology</button>
+            <button id="b4" type="button" class="btn btn-light ml-auto mr-auto" value="crime">Crime</button>
+            <button id="b5" type="button" class="btn btn-warning ml-auto mr-auto" value="lifestyle">Lifestyle</button>
+            <button id="b6" type="button" class="btn btn-info ml-auto mr-auto" value="animals">Animals</button>
+            <button id="b7" type="button" class="btn btn-danger ml-auto mr-auto" value="coronavirus">Covid-19</button>
         </div>
-    </div>
-
         <div class="row">
-            <div class="col-12 search">
+            <div class="col-12 search flexy">
                 <form id="search-form">
-                        <input id="search_bar" class="search-bar" placeholder="Search for news in your area..." />
-                        <button class="btn input-group-btn" id="search" type="submit">
-                            Search
-                        </button> 
-                        <select id="dropdown" value="">
-                            <option value="disabled">Search News by Topic</option>
-                        </select>
-                   
-                  
+                    <input id="search_bar" class="search-bar" placeholder="Enter your ZIPCODE!" />
+                    <button class="btn input-group-btn" id="search" type="submit">
+                        Search
+                    </button>
                 </form>
             </div>
-
         </div>
-    </div>
-    <div id="button-div">
-        <button id="b1" type="button" class="btn btn-primary ml-3 mr-3" value="sports">Sports</button>
-        <button id="b2" type="button" class="btn btn-secondary ml-3 mr-3" value="entertainment">Entertainment</button>
-        <button id="b3" type="button" class="btn btn-success ml-3 mr-3" value="technology">Technology</button>
-        <button id="b4" type="button" class="btn btn-danger ml-3 mr-3" value="crime">Crime</button>
-        <button id="b5" type="button" class="btn btn-warning ml-3 mr-3" value="lifestyle">Lifestyle</button>
-        <button id="b6" type="button" class="btn btn-info ml-3 mr-3" value="animals">Animals</button>
-    </div>
-    <div class="row">
-        <div class="col-12 results">
-            <div class="news-container row">
+        <div class="flexy">
+            <div>
+                <div id="top-videos-section">
+                    <div class="video_main_header">Today's Top Videos</div>
+                    <div class="videos">
+                        <iframe id="youtube_videos" src="https://www.youtube.com/embed/FdoR8ygTUaQ" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <iframe id="youtube_videos" src="https://www.youtube.com/embed/SBnkObc5IwM" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <iframe id="youtube_videos" src="https://www.youtube.com/embed/TliKx7posYU" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-12 results">
+                        <div class="news-container row">
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-12 results">
+                <div class="weather-container row">
 
-        </main>
-        <footer>
-            <div id="flex_box-row" > 
-
-                            <div class="weather-container">
-
-                            </div> 
-                            <div id="top-videos-section">
-                                <div class="video_main_header">Today's Top Videos</div> 
-                                <div class= "videos" >  
-                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/FdoR8ygTUaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <iframe  id="youtube_videos" src="https://www.youtube.com/embed/SBnkObc5IwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/TliKx7posYU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                
-
+                </div>
             </div>
-
         </div>
     </footer>
 
