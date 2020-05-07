@@ -1,3 +1,5 @@
+body{ font-family: "Fjalla ONe"; 
+overflow: hidden;}
 
 @keyframes customTicker {
   0% {
@@ -12,13 +14,12 @@
   }
 }
 
-.ticker-wrap {
-  position: static;
-  width: 100%;
-  overflow: hidden;
-  height: 4rem;
-  background-color: rgba(#000, 0.9); 
-  box-sizing: content-box;
+.ticker-wrap { 
+    background-color: red; 
+    font-size: 25px; 
+    color: seashell;  
+    font-family: 'Fjalla One', sans-serif;
+ 
 }
   
 .ticker {
@@ -38,7 +39,6 @@
   -webkit-animation-duration: 20s;
           animation-duration: 20s;
           text-align: center;
-
 }
 
 .ticker__item {
@@ -55,8 +55,14 @@ h2 {
   letter-spacing: 2px;
 }  
 
-#ziplogo { 
-  font-size: 29px;
+#ziplogo{ 
+    font-size: 30px; 
+    font-family: "Fjalla One"; 
+    letter-spacing: 2px; 
+    font-weight: bold;
+}   
+#navbarNav{ 
+    font-family: "Fjalla One";
 }
 
 #search-form {  
@@ -99,14 +105,14 @@ option {
 }
 
 .weather-container {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  border: 1px solid red;
-}
+    background-color:black ;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center; 
+    width: 80%; 
+    border-right: white solid 20px; 
+} 
 
 .card{
   margin-top: 20px;
@@ -128,25 +134,29 @@ option {
   border-style: none;
 }
 
-#top-videos-section{
-  background-color:white; 
-  display: flex; 
-  flex-direction: column; 
-  width: 20%; 
-}
-
-.video_main_header{
-  font-family: "Fjalla One"; 
-  color:red;  
-  text-align: center;
-  border: 1px solid red;
-  margin: 0 5px;
-
+#top-videos-section{ 
+    background-color:black; 
+    display: flex; 
+    flex-direction: column; 
+    
+    width: 20%;  
+    justify-content: space-evenly; 
+    justify-items: center; 
+    text-align: center;
+}  
+    
+.video_main_header{  
+    font-family: "Fjalla One"; 
+    color:white;  
+    text-align: center; 
+    letter-spacing: 2px; 
+    margin-top: 5px;
 }
 
 #videos{
   background-color: black;   
   text-align: center;
+
 
 }
 
