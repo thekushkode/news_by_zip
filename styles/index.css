@@ -102,11 +102,19 @@ option{
     background-color:black ;
     display: flex; 
     flex-direction: row; 
-    justify-content: center;
-    align-items: center; 
-    width: 75%; 
-    border-right: white solid 20px; 
-} 
+    justify-content:space-evenly; 
+    align-items: center;  
+    flex-wrap: wrap!important;
+    width: 75%;  
+    height: 75%;
+    border-right: white solid 20px;  
+
+}  
+
+#card_format{ 
+    width: 200px; 
+    height:300px;
+}
 
 .card{  
     margin-top: 20px;
@@ -118,29 +126,38 @@ option{
 .card-text{ 
     text-align: center; 
     font-family: "Fjalla One";  
-    font-size: 15px!important;  
+    font-size: 10px!important;  
     word-spacing: 2px!important;
 
 } 
 .card-title{ 
     text-align: center; 
     font-family: "Fjalla One"; 
-    font-weight: bold;
+    font-weight: bold; 
+    font-size: 15px;
 } 
 .card-body{ 
     border-style: none; 
     height: 70%!important;
 }  
 
+.story_btn{ 
+    height:25px; 
+    font-size: 10px; 
+    width: 25px; 
+    text-align: center;
+}
+
+
 #top-videos-section{ 
     background-color:black; 
     display: flex; 
     flex-direction: column; 
-    
     width: 25%;  
     justify-content: space-evenly; 
     justify-items: center; 
-    text-align: center;
+    text-align: center; 
+    border-left: solid white 3px;
 }  
     
 .video_main_header{  
@@ -161,9 +178,11 @@ option{
     margin-left: 10%; 
     margin-right: 10%;
 }
-#flex_box-row{
+#flex_box-row{ 
+    background-color: black;
     display: flex; 
-    flex-direction: row; 
+    flex-direction: row;  
+   
 }
 
 .weather-container{ 
