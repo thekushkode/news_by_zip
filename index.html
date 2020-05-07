@@ -56,15 +56,15 @@
         <div class="row">
             <div class="col-12 search">
                 <form id="search-form">
-                    <div class="input-group input-group-lg">
-                        <input class="form-control search-bar" placeholder="Search for news in your area..." />
-                        <button class="btn btn-primary input-group-btn" id="search" type="submit">
+                        <input id="search_bar" class="search-bar" placeholder="Search for news in your area..." />
+                        <button class="btn input-group-btn" id="search" type="submit">
                             Search
-                        </button>
-                    </div>
-                    <select id="dropdown" value="">
-                        <option value="disabled">Search News by Topic</option>
-                    </select>
+                        </button> 
+                        <select id="dropdown" value="">
+                            <option value="disabled">Search News by Topic</option>
+                        </select>
+                   
+                  
                 </form>
             </div>
         </div>
@@ -78,13 +78,17 @@
         </main>
         <footer>
             <div id="flex_box-row" > 
-                     
+
                             <div class="weather-container">
 
                             </div> 
                             <div id="top-videos-section">
                                 <div class="video_main_header">Today's Top Videos</div> 
-                                <div class= "videos" > </div>
+                                <div class= "videos" >  
+                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/FdoR8ygTUaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe  id="youtube_videos" src="https://www.youtube.com/embed/SBnkObc5IwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/TliKx7posYU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
                             </div>
                 
             </div>
