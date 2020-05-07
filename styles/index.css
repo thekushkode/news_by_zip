@@ -1,5 +1,3 @@
-body{ font-family: "Fjalla ONe"; 
-}
 
 @keyframes customTicker {
   0% {
@@ -14,12 +12,13 @@ body{ font-family: "Fjalla ONe";
   }
 }
 
-.ticker-wrap { 
-    background-color: red; 
-    font-size: 25px; 
-    color: seashell;  
-    font-family: 'Fjalla One', sans-serif;
- 
+.ticker-wrap {
+  position: static;
+  width: 100%;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(#000, 0.9); 
+  box-sizing: content-box;
 }
   
 .ticker {
@@ -55,40 +54,34 @@ h2 {
   letter-spacing: 2px;
 }  
 
-#ziplogo{ 
-    font-size: 50px; 
-    font-family: "Fjalla One"; 
-    letter-spacing: 4px; 
-    font-weight: bold;
-}   
-#navbarNav{ 
-    font-family: "Fjalla One";
+#ziplogo { 
+  font-size: 29px;
 }
 
 #search-form {  
   display: flex;
   flex-direction: row; 
-  justify-content: center;  
-  background-color: #f8f9fa!important;
+  /* justify-content: center;   */
+  background-color: white !important;
 } 
 
 #search_bar { 
   width: 400px; 
-  background-color:black; 
+  background-color:rgb(255, 255, 255); 
   border-style: solid; 
   border-width: 2px; 
   border-color:black ;  
-  color: white; 
+  color: rgb(0, 0, 0); 
   font-family: "Fjalla One"; 
   letter-spacing: 2px;  
-  margin-right: 10px;
+  margin: 0 10px 20px 20px;
 } 
 
 #search { 
   font-family: "Fjalla One"; 
   letter-spacing: 2px; 
-  color: whitesmoke; 
-  background-color: gray; 
+  color: rgb(0, 0, 0); 
+  background-color: rgb(145, 145, 145); 
   opacity: .4;  
   margin-right: 30px;   
 }
@@ -105,105 +98,83 @@ option {
 }
 
 .weather-container {
-    background-color:black ;
-    display: flex; 
-    flex-direction: row; 
-    justify-content:space-evenly; 
-    align-items: center;  
-    flex-wrap: wrap!important;
-    width: 75%;  
-    height: 75%;
-    border-right: white solid 20px;  
-
-}  
-
-#card_format{ 
-    width: 200px; 
-    height:300px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
 }
 
-.card{  
-    margin-top: 20px;
-    border-style: none; 
-    width: 200px!important; 
-    height: 270px!important;
+.card {
+  margin-top: 20px;
+  border-style: none;
 }
 
-.card-text{ 
-    text-align: center; 
-    font-family: "Fjalla One";  
-    font-size: 10px!important;  
-    word-spacing: 2px!important;
-
-} 
-.card-title{ 
-    text-align: center; 
-    font-family: "Fjalla One"; 
-    font-weight: bold; 
-    font-size: 15px;
-} 
-.card-body{ 
-    border-style: none; 
-    height: 70%!important;
-}  
-
-.story_btn{ 
-    height:25px; 
-    font-size: 10px; 
-    width: 25px; 
-    text-align: center;
+.card-text {
+  text-align: center; 
+  font-family: "Fjalla One";
 }
 
-
-#top-videos-section{ 
-    background-color:black; 
-    display: flex; 
-    flex-direction: column; 
-    width: 25%;  
-    justify-content: space-evenly; 
-    justify-items: center; 
-    text-align: center; 
-    border-left: solid white 3px;
-}  
-    
-.video_main_header{  
-    font-family: "Fjalla One"; 
-    color:white;  
-    text-align: center; 
-    letter-spacing: 2px; 
-    margin-top: 5px;
+.card-title {
+  text-align: center; 
+  font-family: "Fjalla One"; 
+  font-weight: bold;
 }
 
-#videos{
+.card-body {
+  border-style: none;
+}
+
+#top-videos-section {
+  background-color:white; 
+  display: flex; 
+  flex-direction: column; 
+  width: 200px; 
+}
+
+.video_main_header {
+  font-family: "Fjalla One"; 
+  color:red;  
+  text-align: center;
+  border: 1px solid red;
+  margin: 20px 10px 10px 10px;
+
+}
+
+#videos {
   background-color: black;   
   text-align: center;
 
-
 }
 
-#youtube_videos{
+#youtube_videos {
   width: 80%; 
   margin-left: 10%; 
   margin-right: 10%;
 }
 
-#flex_box-row{ 
-    background-color: black;
-    display: flex; 
-    flex-direction: row;  
+#flex_box-row {
+  display: flex; 
+  flex-direction: row; 
 }
 
-.weather-container{ 
-    width: 200px; 
-    height: 300px;
-}
 
 #button-div {
   display: flex;
   justify-content: center;
   margin: 10px 0 20px 0;
-} 
+}
 
-footer{ 
-    height: 25%;
+/* #twenty_percent {
+  width: 200px;
+} */
+
+.flexy {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navvy {
+  background-color: white !important;
 }
