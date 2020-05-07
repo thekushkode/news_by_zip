@@ -14,7 +14,7 @@ $(function () {
 const renderWeather = function (data) {
     for (const property in weatherData) {
         return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card" style="width: 100%;">
+        <div class="card" style="width: 100%";>
             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">Temp: ${weatherData["temperature"]}</h5>

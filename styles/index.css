@@ -40,7 +40,11 @@
 h2{ font-family: "Fjalla One";  
     color: black; 
     background-color: white;
-} 
+}  
+
+#ziplogo{ 
+    font-size: 29px;
+}
 
 .weather-container{ 
     background-color: #808B96 ;
@@ -92,3 +96,6 @@ h2{ font-family: "Fjalla One";
     flex-direction: row; 
 }
 
+#cardId{ 
+    background-color: blue;
+}
