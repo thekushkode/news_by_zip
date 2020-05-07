@@ -23,26 +23,36 @@ overflow: hidden;}
 }
   
 .ticker {
-    display: inline-block;
-    white-space: nowrap;
-    -webkit-animation-iteration-count: infinite; 
-            animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    -webkit-animation-name: customTicker;
-            animation-name: customTicker;
-    -webkit-animation-duration: 20s;
-            animation-duration: 20s;
-            text-align: center;
+  display: inline-block;
+  height: 4rem;
+  line-height: 4rem;  
+  white-space: nowrap;
+  box-sizing: content-box;
+  margin-bottom: 50px;
 
+  -webkit-animation-iteration-count: infinite; 
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-name: customTicker;
+          animation-name: customTicker;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+          text-align: center;
 }
 
+.ticker__item {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 1rem;
+  color: red;
+}
 
-
-h2{ font-family: "Fjalla One";  
-    color: black; 
-    background-color: white; 
-    letter-spacing: 2px;
+h2 {
+  font-family: "Fjalla One";  
+  color: black; 
+  background-color: white; 
+  letter-spacing: 2px;
 }  
 
 #ziplogo{ 
@@ -56,49 +66,45 @@ h2{ font-family: "Fjalla One";
 }
 
 #search-form {  
-    display: flex;
-    flex-direction: row; 
-    justify-content: center;  
-    background-color: #f8f9fa!important;
-    
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;  
+  background-color: #f8f9fa!important;
 } 
 
-#search_bar{ 
-    width: 400px; 
-    background-color:black; 
-    border-style: solid; 
-    border-width: 2px; 
-    border-color:black ;  
-    color: white; 
-    font-family: "Fjalla One"; 
-    letter-spacing: 2px;  
-    margin-right: 10px;
-    
+#search_bar { 
+  width: 400px; 
+  background-color:black; 
+  border-style: solid; 
+  border-width: 2px; 
+  border-color:black ;  
+  color: white; 
+  font-family: "Fjalla One"; 
+  letter-spacing: 2px;  
+  margin-right: 10px;
 } 
 
-#search{ 
-    font-family: "Fjalla One"; 
-    letter-spacing: 2px; 
-    color: whitesmoke; 
-    background-color: gray; 
-    opacity: .4;  
-    margin-right: 30px;
-    
-} 
-
-#dropdown{ 
-    font-family: "Fjalla One"; 
-    letter-spacing: 2px; 
-    background-color: whitesmoke;
-} 
-option{ 
-    font-family: "Fjalla One"; 
-    letter-spacing: 2px; 
-    background-color: whitesmoke;
+#search { 
+  font-family: "Fjalla One"; 
+  letter-spacing: 2px; 
+  color: whitesmoke; 
+  background-color: gray; 
+  opacity: .4;  
+  margin-right: 30px;   
 }
 
-.weather-container{ 
+#dropdown {
+  font-family: "Fjalla One"; 
+  letter-spacing: 2px; 
+  background-color: whitesmoke;
+} 
+option { 
+  font-family: "Fjalla One"; 
+  letter-spacing: 2px; 
+  background-color: whitesmoke;
+}
 
+.weather-container {
     background-color:black ;
     display: flex; 
     flex-direction: row; 
@@ -108,23 +114,25 @@ option{
     border-right: white solid 20px; 
 } 
 
-.card{  
-    margin-top: 20px;
-    border-style: none;
+.card{
+  margin-top: 20px;
+  border-style: none;
 }
 
-.card-text{ 
-    text-align: center; 
-    font-family: "Fjalla One";
-} 
-.card-title{ 
-    text-align: center; 
-    font-family: "Fjalla One"; 
-    font-weight: bold;
-} 
-.card-body{ 
-    border-style: none;
-}  
+.card-text{
+  text-align: center; 
+  font-family: "Fjalla One";
+}
+
+.card-title{
+  text-align: center; 
+  font-family: "Fjalla One"; 
+  font-weight: bold;
+}
+
+.card-body{
+  border-style: none;
+}
 
 #top-videos-section{ 
     background-color:black; 
@@ -143,21 +151,24 @@ option{
     text-align: center; 
     letter-spacing: 2px; 
     margin-top: 5px;
+}
+
+#videos{
+  background-color: black;   
+  text-align: center;
+
 
 }
-#videos{ 
-    background-color: black;   
-    text-align: center;
 
-} 
-#youtube_videos{ 
-    width: 80%; 
-    margin-left: 10%; 
-    margin-right: 10%;
+#youtube_videos{
+  width: 80%; 
+  margin-left: 10%; 
+  margin-right: 10%;
 }
+
 #flex_box-row{
-    display: flex; 
-    flex-direction: row; 
+  display: flex; 
+  flex-direction: row; 
 }
 
 
@@ -165,5 +176,4 @@ option{
   display: flex;
   justify-content: center;
   margin: 10px 0 20px 0;
-
 }

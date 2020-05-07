@@ -20,11 +20,11 @@ const renderNews = function (newsArray) {
     return newsHtmlArray.join("");
 };
 
-let newsApiKey = "f21c4734cbcd4f5292b1f63ee57ef784";
+// let newsApiKey = "f21c4734cbcd4f5292b1f63ee57ef784";
 window.addEventListener("DOMContentLoaded", function () {
     myForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        let zipcode = document.querySelector(".form-control").value;
+        let zipcode = document.querySelector("#search_bar").value;
         axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
             let $searchString = data.data.city;
             let urlEncodedSearchString = encodeURIComponent($searchString)
@@ -44,6 +44,36 @@ window.addEventListener("DOMContentLoaded", function () {
         })
     });
 });
+
+window.addEventListener("DOMContentLoaded", function () {
+    // js geo location
+    navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude
+        let lng = position.coords.longitude
+        let location = { lat, lng }
+        var geocoder = new google.maps.Geocoder;
+
+        geocoder.geocode({ 'location': location }, function (results, status) {
+            if (status === 'OK') {
+                if (results[0]) {
+                    //results populated not to find the city
+                    let address = results[0].address_components
+                    let city = address.find(component => {
+                        return component.types.includes("locality")
+                    })
+                    const newsByGeo = city.long_name
+                    console.log(newsByGeo)
+                } else {
+                    window.alert('No results found');
+                }
+            } else {
+                window.alert('Geocoder failed due to: ' + status);
+            }
+        });
+    })
+
+});
+
 
 function saveToNewsList(index) {
     let news = newsData[index];
