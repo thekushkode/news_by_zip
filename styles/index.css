@@ -1,5 +1,5 @@
 body{ font-family: "Fjalla ONe"; 
-overflow: hidden;}
+}
 
 @keyframes customTicker {
   0% {
@@ -56,9 +56,9 @@ h2 {
 }  
 
 #ziplogo{ 
-    font-size: 30px; 
+    font-size: 50px; 
     font-family: "Fjalla One"; 
-    letter-spacing: 2px; 
+    letter-spacing: 4px; 
     font-weight: bold;
 }   
 #navbarNav{ 
@@ -108,41 +108,62 @@ option {
     background-color:black ;
     display: flex; 
     flex-direction: row; 
-    justify-content: center;
-    align-items: center; 
-    width: 80%; 
-    border-right: white solid 20px; 
+    justify-content:space-evenly; 
+    align-items: center;  
+    flex-wrap: wrap!important;
+    width: 75%;  
+    height: 75%;
+    border-right: white solid 20px;  
+
+}  
+
+#card_format{ 
+    width: 200px; 
+    height:300px;
+}
+
+.card{  
+    margin-top: 20px;
+    border-style: none; 
+    width: 200px!important; 
+    height: 270px!important;
+}
+
+.card-text{ 
+    text-align: center; 
+    font-family: "Fjalla One";  
+    font-size: 10px!important;  
+    word-spacing: 2px!important;
+
 } 
+.card-title{ 
+    text-align: center; 
+    font-family: "Fjalla One"; 
+    font-weight: bold; 
+    font-size: 15px;
+} 
+.card-body{ 
+    border-style: none; 
+    height: 70%!important;
+}  
 
-.card{
-  margin-top: 20px;
-  border-style: none;
+.story_btn{ 
+    height:25px; 
+    font-size: 10px; 
+    width: 25px; 
+    text-align: center;
 }
 
-.card-text{
-  text-align: center; 
-  font-family: "Fjalla One";
-}
-
-.card-title{
-  text-align: center; 
-  font-family: "Fjalla One"; 
-  font-weight: bold;
-}
-
-.card-body{
-  border-style: none;
-}
 
 #top-videos-section{ 
     background-color:black; 
     display: flex; 
     flex-direction: column; 
-    
-    width: 20%;  
+    width: 25%;  
     justify-content: space-evenly; 
     justify-items: center; 
-    text-align: center;
+    text-align: center; 
+    border-left: solid white 3px;
 }  
     
 .video_main_header{  
@@ -166,14 +187,23 @@ option {
   margin-right: 10%;
 }
 
-#flex_box-row{
-  display: flex; 
-  flex-direction: row; 
+#flex_box-row{ 
+    background-color: black;
+    display: flex; 
+    flex-direction: row;  
 }
 
+.weather-container{ 
+    width: 200px; 
+    height: 300px;
+}
 
 #button-div {
   display: flex;
   justify-content: center;
   margin: 10px 0 20px 0;
+} 
+
+footer{ 
+    height: 25%;
 }

@@ -4,15 +4,14 @@ let newsData;
 
 const renderNews = function (newsArray) {
     let newsHtmlArray = newsArray.map(function (currentStory, i) {
-        return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                        <div class="card" style="width: 100%;">
+        return `<div id="card_format">
+                        <div class="card">
                         <a href="${currentStory.url}"><img src=${currentStory.urlToImage} id="0" class="card-img-top" alt="${currentStory.title}"></a>
                         <div class="card-body">
                                 <h5 class="card-title">${currentStory.title}</h5>
                                 <p class="card-text">Author: ${currentStory.author}</p>
-                                <p class="card-text">Published: ${currentStory.publishedAt}</p>
-                                <button  class="btn btn-danger" onclick="readStory('${currentStory.url}')">Read Story</button>
-                                <button  class="btn btn-primary" onclick="saveToNewsList('${i}')">Add Story</button>
+                                <button class="story_btn btn btn-danger" onclick="readStory('${currentStory.url}')">Read </button>
+                                <button  class="story_btn btn btn-primary" onclick="saveToNewsList('${i}')">Save</button>
                                 </div>
                         </div>
                         </div>`
