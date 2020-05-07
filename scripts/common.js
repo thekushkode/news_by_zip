@@ -60,18 +60,49 @@ const readStory = function (url) {
     window.location.assign(url);
 };
 
-let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
-let dropDown = document.getElementById("dropdown");
+// let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
+// let dropDown = document.getElementById("dropdown");
 let category;
-dropDown.addEventListener("change", event => {
-    category = event.target.value;
+// dropDown.addEventListener("change", event => {
+//     category = event.target.value;
+// });
+
+
+// function createDropdownValues(element) {
+//     let interestOptions = document.createElement("option");
+//     interestOptions.setAttribute("value", element);
+//     interestOptions.textContent = element;
+//     dropDown.appendChild(interestOptions);
+// };
+// interests.map(createDropdownValues);
+
+const b1 = document.querySelector("#b1");
+const b2 = document.querySelector("#b2");
+const b3 = document.querySelector("#b3");
+const b4 = document.querySelector("#b4");
+const b5 = document.querySelector("#b5");
+const b6 = document.querySelector("#b6");
+
+b1.addEventListener("click", e => {
+    category = e.target.value;
 });
 
+b2.addEventListener("click", e => {
+    category = e.target.value;
+});
 
-function createDropdownValues(element) {
-    let interestOptions = document.createElement("option");
-    interestOptions.setAttribute("value", element);
-    interestOptions.textContent = element;
-    dropDown.appendChild(interestOptions);
-};
-interests.map(createDropdownValues);
+b3.addEventListener("click", e => {
+    category = e.target.value;
+});
+
+b4.addEventListener("click", e => {
+    category = e.target.value;
+});
+
+b5.addEventListener("click", e => {
+    category = e.target.value;
+});
+
+b6.addEventListener("click", e => {
+    category = e.target.value;
+});
