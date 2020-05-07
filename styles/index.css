@@ -1,3 +1,5 @@
+body{ font-family: "Fjalla ONe"; 
+overflow: hidden;}
 
 @keyframes customTicker {
   0% {
@@ -12,24 +14,17 @@
   }
 }
 
-.ticker-wrap {
-  position: static;
-  width: 100%;
-  overflow: hidden;
-  height: 4rem;
-  background-color: rgba(#000, 0.9); 
-  box-sizing: content-box;
+.ticker-wrap { 
+    background-color: red; 
+    font-size: 25px; 
+    color: seashell;  
+    font-family: 'Fjalla One', sans-serif;
+ 
 }
   
 .ticker {
-
     display: inline-block;
-    height: 4rem;
-    line-height: 4rem;  
     white-space: nowrap;
-    box-sizing: content-box;
-    margin-bottom: 50px;
-
     -webkit-animation-iteration-count: infinite; 
             animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
@@ -42,13 +37,7 @@
 
 }
 
-.ticker__item {
-  display: inline-block;
-  padding: 0 2rem;
-  font-size: 1rem;
-  color: red;   
 
-}
 
 h2{ font-family: "Fjalla One";  
     color: black; 
@@ -57,8 +46,14 @@ h2{ font-family: "Fjalla One";
 }  
 
 #ziplogo{ 
-    font-size: 29px;
-}  
+    font-size: 30px; 
+    font-family: "Fjalla One"; 
+    letter-spacing: 2px; 
+    font-weight: bold;
+}   
+#navbarNav{ 
+    font-family: "Fjalla One";
+}
 
 #search-form {  
     display: flex;
@@ -104,15 +99,13 @@ option{
 
 .weather-container{ 
 
-    background-color: rgb(255, 255, 255) ;
+    background-color:black ;
     display: flex; 
     flex-direction: row; 
     justify-content: center;
     align-items: center; 
-
-    width: 80%;
-    border: 1px solid red;
-
+    width: 80%; 
+    border-right: white solid 20px; 
 } 
 
 .card{  
@@ -134,18 +127,22 @@ option{
 }  
 
 #top-videos-section{ 
-
-    background-color:white; 
+    background-color:black; 
     display: flex; 
     flex-direction: column; 
-    width: 20%; 
-}  
-.video_main_header{ 
-    font-family: "Fjalla One"; 
-    color:red;  
+    
+    width: 20%;  
+    justify-content: space-evenly; 
+    justify-items: center; 
     text-align: center;
-    border: 1px solid red;
-    margin: 0 5px;
+}  
+    
+.video_main_header{  
+    font-family: "Fjalla One"; 
+    color:white;  
+    text-align: center; 
+    letter-spacing: 2px; 
+    margin-top: 5px;
 
 }
 #videos{ 
@@ -169,3 +166,4 @@ option{
   justify-content: center;
   margin: 10px 0 20px 0;
 
+}

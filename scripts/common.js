@@ -61,21 +61,21 @@ const readStory = function (url) {
     window.location.assign(url);
 };
 
-// let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
-// let dropDown = document.getElementById("dropdown");
+let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
+let dropDown = document.getElementById("dropdown");
 let category;
-// dropDown.addEventListener("change", event => {
-//     category = event.target.value;
-// });
+dropDown.addEventListener("change", event => {
+    category = event.target.value;
+});
 
 
-// function createDropdownValues(element) {
-//     let interestOptions = document.createElement("option");
-//     interestOptions.setAttribute("value", element);
-//     interestOptions.textContent = element;
-//     dropDown.appendChild(interestOptions);
-// };
-// interests.map(createDropdownValues);
+function createDropdownValues(element) {
+    let interestOptions = document.createElement("option");
+    interestOptions.setAttribute("value", element);
+    interestOptions.textContent = element;
+    dropDown.appendChild(interestOptions);
+};
+interests.map(createDropdownValues);
 
 const b1 = document.querySelector("#b1");
 const b2 = document.querySelector("#b2");
