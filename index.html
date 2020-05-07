@@ -26,9 +26,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 header text-center">
-                    <h2 class="display-2">News By Zip</h2>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="index.html">Home</a>
+                        <a id="ziplogo" class="navbar-brand" href="index.html" >ZipNews</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -39,7 +38,13 @@
                                     <a class="nav-link" href="saved_stories.html"> </a>
                                     <a class="navbar-brand" href="saved_stories.html">Saved Stories</a>
                                     </button>
-                            </form>
+                            </form> 
+                            <form class="form-inline">
+                                <ul class="navbar-nav">
+                                    <a class="nav-link" href="saved_stories.html"> </a>
+                                        <a class="navbar-brand" href="saved_stories.html">Saved Stories</a>
+                                    </button>
+                            </form> 
                             </ul>
                         </div>
                     </nav>
@@ -54,19 +59,21 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 search">
-            <form id="search-form">
-                <div class="input-group input-group-lg ml-4">
-                    <input class="form-control search-bar" placeholder="Search for news in your area..." />
-                    <button class="btn btn-primary input-group-btn" id="search" type="submit">
-                        Search
-                    </button>
-                </div>
-                <!-- <select id="dropdown" value="">
-                        <option value="disabled">Search News by Topic</option>
-                    </select> -->
-            </form>
+        <div class="row">
+            <div class="col-12 search">
+                <form id="search-form">
+                        <input id="search_bar" class="search-bar" placeholder="Search for news in your area..." />
+                        <button class="btn input-group-btn" id="search" type="submit">
+                            Search
+                        </button> 
+                        <select id="dropdown" value="">
+                            <option value="disabled">Search News by Topic</option>
+                        </select>
+                   
+                  
+                </form>
+            </div>
+
         </div>
     </div>
     <div id="button-div">
@@ -83,17 +90,24 @@
 
             </div>
         </div>
-    </div>
-    </main>
-    <footer>
-        <div id="flex_box-row">
 
-            <div class="weather-container">
+        </main>
+        <footer>
+            <div id="flex_box-row" > 
 
-            </div>
-            <div id="top-videos-section">
-                <div class="video_main_header">Today's Top Videos</div>
-                <div class="videos"> </div>
+                            <div class="weather-container">
+
+                            </div> 
+                            <div id="top-videos-section">
+                                <div class="video_main_header">Today's Top Videos</div> 
+                                <div class= "videos" >  
+                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/FdoR8ygTUaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe  id="youtube_videos" src="https://www.youtube.com/embed/SBnkObc5IwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe id="youtube_videos" src="https://www.youtube.com/embed/TliKx7posYU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                
+
             </div>
 
         </div>

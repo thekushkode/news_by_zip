@@ -20,6 +20,7 @@ const renderNews = function (newsArray) {
     return newsHtmlArray.join("");
 };
 
+let newsApiKey = "f21c4734cbcd4f5292b1f63ee57ef784";
 window.addEventListener("DOMContentLoaded", function () {
     myForm.addEventListener("submit", function (e) {
         e.preventDefault();
