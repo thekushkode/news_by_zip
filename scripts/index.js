@@ -48,3 +48,8 @@ const arrayOfPromises = Promise.all(symbolArray.map(stockSymbol => {
 function addToTicker(symbol, data) {
     stocksPgraph.append(" ", symbol, ": ", data, " ");
 }
+
+let googleSource = `<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&"></script>`;
+document.body.innerHTML += (googleSource);
+console.log(googleSource);
