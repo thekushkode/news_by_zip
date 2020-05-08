@@ -1,19 +1,27 @@
 const weatherContainer = document.querySelector(".weather-container");
 let weatherData;
+let locationCity;
+let locationData;
 const symbolArray = ['KO', 'GOOGL', 'AAPL', 'TSLA', 'DAL'];
 
+
 $(function () {
-    axios.get("http://api.weatherstack.com/current?access_key=1b963aaec64922ece9101f2139f57884&query=Atlanta&units=f")
+    axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
             weatherData = data.data.current;
             weatherContainer.innerHTML = renderWeather(weatherData);
         })
+    // axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
+    //     .then(data => {
+    //         locationData = data.data["geoplugin_city"];
+
+    //     })
 })
 
 
 const renderWeather = function (data) {
     for (const property in weatherData) {
-        return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4 w-25">
         <div class="card" style="width: 100%";>
             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top">
             <div class="card-body">
@@ -35,7 +43,6 @@ const arrayOfPromises = Promise.all(symbolArray.map(stockSymbol => {
 }))
     .then(responses => {
         responses.forEach((response, i) => {
-            console.log(responses);
             let timeSeries60Min = response.data["Time Series (60min)"];
             innerLoop:
             for (let key in timeSeries60Min) {
@@ -48,3 +55,13 @@ const arrayOfPromises = Promise.all(symbolArray.map(stockSymbol => {
 function addToTicker(symbol, data) {
     stocksPgraph.append(" ", symbol, ": ", data, " ");
 }
+
+const geoLocation = function () {
+    axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
+        .then(data => {
+            locationCity = data.data["geoplugin_city"];
+            return locationCity
+        })
+}
+console.log(geoLocation());
+geoLocation();

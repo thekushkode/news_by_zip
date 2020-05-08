@@ -45,10 +45,11 @@
   padding: 0 2rem;
   font-size: 1rem;
   color: red;
+  font-family: 'Source Sans Pro';
 }
 
 h2 {
-  font-family: "Fjalla One";  
+  font-family: 'Source Sans Pro';  
   color: black; 
   background-color: white; 
   letter-spacing: 2px;
@@ -72,13 +73,14 @@ h2 {
   border-width: 2px; 
   border-color:black ;  
   color: rgb(0, 0, 0); 
-  font-family: "Fjalla One"; 
+  font-family: 'Source Sans Pro'; 
   letter-spacing: 2px;  
   margin: 0 10px 20px 20px;
+  text-align: center;
 } 
 
 #search { 
-  font-family: "Fjalla One"; 
+  font-family: 'Source Sans Pro'; 
   letter-spacing: 2px; 
   color: rgb(0, 0, 0); 
   background-color: rgb(0, 110, 255); 
@@ -134,7 +136,7 @@ option {
 }
 
 .video_main_header {
-  font-family: "Fjalla One"; 
+  font-family: 'Source Sans Pro'; 
   color:red;  
   text-align: center;
   border: 1px solid red;
