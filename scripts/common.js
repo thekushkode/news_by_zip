@@ -2,6 +2,7 @@ const newsContainer = document.querySelector(".news-container");
 const myForm = document.querySelector("#search-form");
 let newsData;
 
+
 const renderNews = function (newsArray) {
     let newsHtmlArray = newsArray.map(function (currentStory, i) {
         return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -59,8 +60,10 @@ window.addEventListener("DOMContentLoaded", function () {
                     let city = address.find(component => {
                         return component.types.includes("locality")
                     })
-                    const newsByGeo = city.long_name
-                    console.log(newsByGeo)
+                    const $newsByGeo = city.long_name
+                    // console.log($newsByGeo)
+                    return $newsByGeo
+
                 } else {
                     window.alert('No results found');
                 }
@@ -69,93 +72,111 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
     })
+    let geoNews = function ($newsByGeo) {
 
-});
+        let urlEncodedSearchString = encodeURIComponent($newsByGeo)
+        if (!category) {
+            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                .then(function (response) {
+                    newsContainer.innerHTML = renderNews(response.data.articles);
+                    newsData = response.data.articles;
+                })
+        } else {
+            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                .then(function (response) {
+                    newsContainer.innerHTML = renderNews(response.data.articles);
+                    newsData = response.data.articles;
+                }
+                )
 
-
-function saveToNewsList(index) {
-    let news = newsData[index];
-    let newsListJSON = localStorage.getItem("newslist");
-    let newslist = JSON.parse(newsListJSON);
-    if (newslist === null) {
-        newslist = [];
+        }
     };
-    newslist.push(news);
-    newsListJSON = JSON.stringify(newslist);
-    localStorage.setItem("newslist", newsListJSON);
-};
-
-const readStory = function (url) {
-    window.location.assign(url);
-};
-
-let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
-let dropDown = document.getElementById("dropdown");
-let category;
-dropDown.addEventListener("change", event => {
-    category = event.target.value;
-});
 
 
-function createDropdownValues(element) {
-    let interestOptions = document.createElement("option");
-    interestOptions.setAttribute("value", element);
-    interestOptions.textContent = element;
-    dropDown.appendChild(interestOptions);
-};
-interests.map(createDropdownValues);
+    function saveToNewsList(index) {
+        let news = newsData[index];
+        let newsListJSON = localStorage.getItem("newslist");
+        let newslist = JSON.parse(newsListJSON);
+        if (newslist === null) {
+            newslist = [];
+        };
+        newslist.push(news);
+        newsListJSON = JSON.stringify(newslist);
+        localStorage.setItem("newslist", newsListJSON);
+    };
 
-const b1 = document.querySelector("#b1");
-const b2 = document.querySelector("#b2");
-const b3 = document.querySelector("#b3");
-const b4 = document.querySelector("#b4");
-const b5 = document.querySelector("#b5");
-const b6 = document.querySelector("#b6");
-const b7 = document.querySelector("#b7");
+    const readStory = function (url) {
+        window.location.assign(url);
+    };
 
-b1.addEventListener("click", e => {
-    e.preventDefault();
-    category = e.target.value;
-    let code = document.querySelector("#search_bar").value;
-    axios.get(`http://ZiptasticAPI.com/${code}`).then(data => {
-        let $searchString = data.data.city;
-        let urlEncodedSearchString = encodeURIComponent($searchString)
-        if (!category) {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
-                .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-        } else {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
-                .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-        }
-    })
-});
+    let interests = ["Sports", "Television", "Beauty", "Lifestyle", "Crime", "Technology"];
+    let dropDown = document.getElementById("dropdown");
+    let category;
+    dropDown.addEventListener("change", event => {
+        category = event.target.value;
+    });
 
-b2.addEventListener("click", e => {
-    e.preventDefault();
-    category = e.target.value;
-    let code = document.querySelector("#search_bar").value;
-    axios.get(`http://ZiptasticAPI.com/${code}`).then(data => {
-        let $searchString = data.data.city;
-        let urlEncodedSearchString = encodeURIComponent($searchString)
-        if (!category) {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
-                .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-        } else {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
-                .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-        }
+
+    function createDropdownValues(element) {
+        let interestOptions = document.createElement("option");
+        interestOptions.setAttribute("value", element);
+        interestOptions.textContent = element;
+        dropDown.appendChild(interestOptions);
+    };
+    interests.map(createDropdownValues);
+
+    const b1 = document.querySelector("#b1");
+    const b2 = document.querySelector("#b2");
+    const b3 = document.querySelector("#b3");
+    const b4 = document.querySelector("#b4");
+    const b5 = document.querySelector("#b5");
+    const b6 = document.querySelector("#b6");
+    const b7 = document.querySelector("#b7");
+
+    b1.addEventListener("click", e => {
+        e.preventDefault();
+        category = e.target.value;
+        let code = document.querySelector("#search_bar").value;
+        axios.get(`http://ZiptasticAPI.com/${code}`).then(data => {
+            let $searchString = data.data.city;
+            let urlEncodedSearchString = encodeURIComponent($searchString)
+            if (!category) {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            } else {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            }
+        })
+    });
+
+    b2.addEventListener("click", e => {
+        e.preventDefault();
+        category = e.target.value;
+        let code = document.querySelector("#search_bar").value;
+        axios.get(`http://ZiptasticAPI.com/${code}`).then(data => {
+            let $searchString = data.data.city;
+            let urlEncodedSearchString = encodeURIComponent($searchString)
+            if (!category) {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            } else {
+                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                    .then(function (response) {
+                        newsContainer.innerHTML = renderNews(response.data.articles);
+                        newsData = response.data.articles;
+                    })
+            }
+        })
     })
 });
 
