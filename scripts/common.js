@@ -166,3 +166,8 @@ function refactorButtons(array) {
 };
 
 refactorButtons(buttonsArray);
+
+let googleSource = `<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&"></script>`;
+document.body.innerHTML += (googleSource);
+console.log(googleSource);
