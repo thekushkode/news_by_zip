@@ -4,34 +4,50 @@
 <head>
     <title>News By Zip</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="saved_stories.css" type="text/css"/>
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="styles/saved_stories.css" type="text/css"/>
 </head>
 
 <body>
-    <div class="container">
+    <header>
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker__item">
+                    <p id="stocks">Your #1 Source of Live, Local, & Late Breaking News!</p>
+                </div>
+            </div>
+        </div>
+        <nav id="navvy" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html" style="font-size: 3em !important;">ZipNews</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link badge-pill badge-warning" href="saved_stories.html">Saved Stories</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
         <div class="row">
-            <div class="col-12 header text-center border border-white">
-                <h3 class="display-1">Saved Stories</h3>
+            <div class="col-12 results">
+                <div class="news-container row" id="news-container">
+    
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 results">
-            <div class="news-container row" id="news-container">
-
-            </div>
+        <div class="col-12 header text-center border border-white">
+            <a id="return" href="index.html">
+                <h3>Return to search</h3>
+            </a>
         </div>
-    </div>
-    <div class="col-12 header text-center border border-white">
-        <a id="return" href="index.html">
-            <h3>Return to search</h3>
-        </a>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
