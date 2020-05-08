@@ -3,6 +3,10 @@ const myForm = document.querySelector("#search-form");
 let newsData;
 
 
+function hasNumber(myString) {
+    return /^\d{5}$/.test(myString);
+}
+
 const renderNews = function (newsArray) {
     let newsHtmlArray = newsArray.map(function (currentStory, i) {
         return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -24,23 +28,33 @@ window.addEventListener("DOMContentLoaded", function () {
     myForm.addEventListener("submit", function (e) {
         e.preventDefault();
         let zipcode = document.querySelector("#search_bar").value;
-        axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
-            let $searchString = data.data.city;
-            let urlEncodedSearchString = encodeURIComponent($searchString)
-            if (!category) {
-                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
-                    .then(function (response) {
-                        newsContainer.innerHTML = renderNews(response.data.articles);
-                        newsData = response.data.articles;
-                    })
-            } else {
-                axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
-                    .then(function (response) {
-                        newsContainer.innerHTML = renderNews(response.data.articles);
-                        newsData = response.data.articles;
-                    })
-            }
-        })
+        console.log(/\d/.test(zipcode));
+        if (hasNumber(zipcode)) {
+            axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
+                let $searchString = data.data.city;
+                let urlEncodedSearchString = encodeURIComponent($searchString);
+                if (!category) {
+                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                        .then(function (response) {
+                            newsContainer.innerHTML = renderNews(response.data.articles);
+                            newsData = response.data.articles;
+                        })
+                } else {
+                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                        .then(function (response) {
+                            newsContainer.innerHTML = renderNews(response.data.articles);
+                            newsData = response.data.articles;
+                        })
+                }
+            })
+        } else {
+            let urlEncodedSearchString2 = encodeURIComponent(zipcode);
+            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString2)
+            .then(function (response) {
+                newsContainer.innerHTML = renderNews(response.data.articles);
+                newsData = response.data.articles;
+            })
+        }
     });
 });
 
