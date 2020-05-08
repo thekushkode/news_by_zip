@@ -78,13 +78,13 @@ window.addEventListener("DOMContentLoaded", function () {
         if (!category) {
             axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                 .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
+                    weatherContainer.innerHTML = renderNews(response.data.articles);
                     newsData = response.data.articles;
                 })
         } else {
             axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                 .then(function (response) {
-                    newsContainer.innerHTML = renderNews(response.data.articles);
+                    weatherContainer.innerHTML = renderNews(response.data.articles);
                     newsData = response.data.articles;
                 }
                 )
