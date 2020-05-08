@@ -12,11 +12,11 @@ const renderNews = function (newsArray) {
         return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                         <div class="card" style="width: 100%;">
                         <a href="${currentStory.url}"><img src=${currentStory.urlToImage} id="0" class="card-img-top" alt="${currentStory.title}"></a>
-                        <div class="card-body">
+                        <div id="card-stuff" class="card-body">
                                 <h6 class="card-title">${currentStory.title}</h6>
                                 <p class="card-text">Author: ${currentStory.author}</p>
-                                <button  class="btn btn-danger" onclick="readStory('${currentStory.url}')">Read Story</button>
-                                <button  class="btn btn-primary" onclick="saveToNewsList('${i}')">Add Story</button>
+                                <button id="news-button" class="btn btn-danger mb-2" onclick="readStory('${currentStory.url}')">Read Story</button>
+                                <button class="btn btn-primary" onclick="saveToNewsList('${i}')">Add Story</button>
                                 </div>
                         </div>
                         </div>`
