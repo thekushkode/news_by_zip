@@ -62,6 +62,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     })
                     const $newsByGeo = city.long_name
                     // console.log($newsByGeo)
+                    geoNews($newsByGeo)
                     return $newsByGeo
 
                 } else {
@@ -73,7 +74,6 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     })
     let geoNews = function ($newsByGeo) {
-
         let urlEncodedSearchString = encodeURIComponent($newsByGeo)
         if (!category) {
             axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
