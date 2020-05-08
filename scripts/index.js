@@ -11,11 +11,6 @@ $(function () {
             weatherData = data.data.current;
             weatherContainer.innerHTML = renderWeather(weatherData);
         })
-    // axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
-    //     .then(data => {
-    //         locationData = data.data["geoplugin_city"];
-
-    //     })
 })
 
 
@@ -60,8 +55,6 @@ const geoLocation = function () {
     axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
         .then(data => {
             locationCity = data.data["geoplugin_city"];
-            return locationCity
+            return locationCity;
         })
 }
-console.log(geoLocation());
-geoLocation();
