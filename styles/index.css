@@ -190,3 +190,10 @@ option {
   flex-direction: column;
   justify-content: center;
 }
+
+.footer-container {
+  display: flex;
+  height: 400px;
+  overflow: scroll;
+  border-top: 2px solid black;
+}

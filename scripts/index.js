@@ -1,22 +1,51 @@
 const weatherContainer = document.querySelector(".weather-container");
+const locationContainer = document.querySelector(".locationNews-container");
 let weatherData;
 let locationCity;
-let locationData;
+let newsLocationData;
+let locateData;
 const symbolArray = ['KO', 'GOOGL', 'AAPL', 'TSLA', 'DAL'];
 
+// const geoLocation = function () {
+//     axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
+//         .then(data => {
+//             locationCity = data.data["geoplugin_city"];
+//             console.log(locationCity);
+//         })
+// }
+// let $locationString = geoLocation();
+// let encodedString = encodeURIComponent($locationString);
+// console.log(encodedString);
+// console.log(geoLocation());
 
 $(function () {
+    const geoLocation = function () {
+        axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
+            .then(data => {
+                locationCity = data.data["geoplugin_city"];
+                return locationCity;
+            })
+    }
+    let $locationString = geoLocation();
+    let encodedString = encodeURIComponent($locationString);
     axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
             weatherData = data.data.current;
             weatherContainer.innerHTML = renderWeather(weatherData);
+        })
+    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
+        .then(data => {
+            locateData = data.data.articles;
+            console.log(locateData);
+            locationContainer.innerHTML = renderNews(locateData);
+            newsLocationData = response.data.articles;
         })
 })
 
 
 const renderWeather = function (data) {
     for (const property in weatherData) {
-        return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4 w-25">
+        return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
         <div class="card" style="width: 100%";>
             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top">
             <div class="card-body">
@@ -49,12 +78,4 @@ const arrayOfPromises = Promise.all(symbolArray.map(stockSymbol => {
 
 function addToTicker(symbol, data) {
     stocksPgraph.append(" ", symbol, ": ", data, " ");
-}
-
-const geoLocation = function () {
-    axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
-        .then(data => {
-            locationCity = data.data["geoplugin_city"];
-            return locationCity;
-        })
 }
