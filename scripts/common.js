@@ -2,6 +2,7 @@ const newsContainer = document.querySelector(".news-container");
 const myForm = document.querySelector("#search-form");
 let newsData;
 
+
 function hasNumber(myString) {
     return /^\d{5}$/.test(myString);
 }
@@ -73,8 +74,11 @@ window.addEventListener("DOMContentLoaded", function () {
                     let city = address.find(component => {
                         return component.types.includes("locality")
                     })
-                    const newsByGeo = city.long_name
-                    console.log(newsByGeo)
+                    const $newsByGeo = city.long_name
+                    // console.log($newsByGeo)
+                    geoNews($newsByGeo)
+                    return $newsByGeo
+
                 } else {
                     window.alert('No results found');
                 }
@@ -83,6 +87,25 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
     })
+    let geoNews = function ($newsByGeo) {
+        let urlEncodedSearchString = encodeURIComponent($newsByGeo)
+        if (!category) {
+            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                .then(function (response) {
+                    weatherContainer.innerHTML = renderNews(response.data.articles);
+                    newsData = response.data.articles;
+                })
+        } else {
+            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                .then(function (response) {
+                    weatherContainer.innerHTML = renderNews(response.data.articles);
+                    newsData = response.data.articles;
+                }
+                )
+
+        }
+    };
+
 
 });
 
