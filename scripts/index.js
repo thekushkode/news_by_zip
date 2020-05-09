@@ -23,17 +23,13 @@ $(function () {
         axios.get("https://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
             .then(data => {
                 locationCity = data.data["geoplugin_city"];
+                console.log(locationCity);
                 return locationCity;
             })
     }
     let $locationString = geoLocation();
     let encodedString = encodeURIComponent($locationString);
     let locationData;
-    axios.get(`https://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
-        .then(data => {
-            myWeatherData = data.data.current;
-            weatherContainer.innerHTML = renderWeather(myWeatherData);
-        })
     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
         .then(data => {
             locationData = data.data.articles;
@@ -42,6 +38,18 @@ $(function () {
             newsLocationData = data.data.articles;
         })
 })
+
+$(function () {
+    axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
+        .then(data => {
+            console.log(data);
+            weatherData = data.data.current;
+            console.log(weatherData);
+            weatherContainer.innerHTML = renderWeather(weatherData);
+        });
+});
+
+
 
 const renderLocationNews = function (newsLocationArray) {
     let newsLocationHtmlArray = newsLocationArray.map(function (currentStory, i) {
@@ -60,20 +68,31 @@ const renderLocationNews = function (newsLocationArray) {
 };
 
 
+// const renderWeather = function (data) {
+//     for (const property in weatherData) {
+//         return `<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
+//         <div class="card d-flex" style:"width: 100%;">
+//             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top flex-fill">
+//             <div class="card-body">
+//                 <p class="card-title">Temp: ${weatherData["temperature"]}</p>
+//                 <p class="card-text">${weatherData["weather_descriptions"][0]}</p>
+//                 <p class="card-text">Precipitation: ${weatherData["precip"]}%</p>
+//                 <p class="card-text">Humidity: ${weatherData["humidity"]}</p>
+//                 <p class="card-text">Wind Speed: ${weatherData["wind_speed"]}mph</p>
+//             </div>
+//         </div>
+//     </div>`
+//     };
+// };
+
 const renderWeather = function (data) {
     for (const property in weatherData) {
-        return `<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card">
-            <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top">
-            <div class="card-body">
-                <p class="card-title">Temp: ${weatherData["temperature"]}</p>
-                <p class="card-text">${weatherData["weather_descriptions"][0]}</p>
-                <p class="card-text">Precipitation: ${weatherData["precip"]}%</p>
-                <p class="card-text">Humidity: ${weatherData["humidity"]}</p>
-                <p class="card-text">Wind Speed: ${weatherData["wind_speed"]}mph</p>
-            </div>
-        </div>
-    </div>`
+        return `<img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top" style="padding: 30px 100px 30px 100px;">
+        <p class="card-title" style="font-family: 'Source Sans Pro';">Temp: ${weatherData["temperature"]}</p>
+        <p class="card-text" style="font-family: 'Source Sans Pro';">${weatherData["weather_descriptions"][0]}</p>
+        <p class="card-text" style="font-family: 'Source Sans Pro';">Precipitation: ${weatherData["precip"]}%</p>
+        <p class="card-text" style="font-family: 'Source Sans Pro';">Humidity: ${weatherData["humidity"]}</p>
+        <p class="card-text" style="font-family: 'Source Sans Pro';">Wind Speed: ${weatherData["wind_speed"]}mph</p>`
     };
 };
 

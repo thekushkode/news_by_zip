@@ -58,56 +58,56 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-window.addEventListener("DOMContentLoaded", function () {
-    // js geo location
-    navigator.geolocation.getCurrentPosition((position) => {
-        let lat = position.coords.latitude
-        let lng = position.coords.longitude
-        let location = { lat, lng }
-        var geocoder = new google.maps.Geocoder;
+// window.addEventListener("DOMContentLoaded", function () {
+//     // js geo location
+//     navigator.geolocation.getCurrentPosition((position) => {
+//         let lat = position.coords.latitude
+//         let lng = position.coords.longitude
+//         let location = { lat, lng }
+//         var geocoder = new google.maps.Geocoder;
 
-        geocoder.geocode({ 'location': location }, function (results, status) {
-            if (status === 'OK') {
-                if (results[0]) {
-                    //results populated not to find the city
-                    let address = results[0].address_components
-                    let city = address.find(component => {
-                        return component.types.includes("locality")
-                    })
-                    const $newsByGeo = city.long_name
-                    // console.log($newsByGeo)
-                    geoNews($newsByGeo)
-                    return $newsByGeo
+//         geocoder.geocode({ 'location': location }, function (results, status) {
+//             if (status === 'OK') {
+//                 if (results[0]) {
+//                     //results populated not to find the city
+//                     let address = results[0].address_components
+//                     let city = address.find(component => {
+//                         return component.types.includes("locality")
+//                     })
+//                     const $newsByGeo = city.long_name
+//                     // console.log($newsByGeo)
+//                     geoNews($newsByGeo)
+//                     return $newsByGeo
 
-                } else {
-                    window.alert('No results found');
-                }
-            } else {
-                window.alert('Geocoder failed due to: ' + status);
-            }
-        });
-    })
-    let geoNews = function ($newsByGeo) {
-        let urlEncodedSearchString = encodeURIComponent($newsByGeo)
-        if (!category) {
-            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
-                .then(function (response) {
-                    weatherContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                })
-        } else {
-            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
-                .then(function (response) {
-                    weatherContainer.innerHTML = renderNews(response.data.articles);
-                    newsData = response.data.articles;
-                }
-                )
+//                 } else {
+//                     window.alert('No results found');
+//                 }
+//             } else {
+//                 window.alert('Geocoder failed due to: ' + status);
+//             }
+//         });
+//     })
+//     let geoNews = function ($newsByGeo) {
+//         let urlEncodedSearchString = encodeURIComponent($newsByGeo)
+//         if (!category) {
+//             axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+//                 .then(function (response) {
+//                     weatherContainer.innerHTML = renderNews(response.data.articles);
+//                     newsData = response.data.articles;
+//                 })
+//         } else {
+//             axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+//                 .then(function (response) {
+//                     weatherContainer.innerHTML = renderNews(response.data.articles);
+//                     newsData = response.data.articles;
+//                 }
+//                 )
 
-        }
-    };
+//         }
+//     };
 
 
-});
+// });
 
 
 function saveToNewsList(index) {
