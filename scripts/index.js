@@ -19,7 +19,7 @@ const symbolArray = ['KO', 'GOOGL', 'AAPL', 'TSLA', 'DAL'];
 
 $(function () {
     const geoLocation = function () {
-        axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
+        axios.get("https://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
             .then(data => {
                 locationCity = data.data["geoplugin_city"];
                 return locationCity;
@@ -28,12 +28,12 @@ $(function () {
     let $locationString = geoLocation();
     let encodedString = encodeURIComponent($locationString);
     let locationData;
-    axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
+    axios.get(`https://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
             weatherData = data.data.current;
             weatherContainer.innerHTML = renderWeather(weatherData);
         })
-    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
+    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
         .then(data => {
             locationData = data.data.articles;
             console.log(locationData);

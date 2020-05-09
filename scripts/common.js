@@ -30,17 +30,17 @@ window.addEventListener("DOMContentLoaded", function () {
         let zipcode = document.querySelector("#search_bar").value;
         console.log(/\d/.test(zipcode));
         if (hasNumber(zipcode)) {
-            axios.get(`http://ZiptasticAPI.com/${zipcode}`).then(data => {
+            axios.get(`https://ZiptasticAPI.com/${zipcode}`).then(data => {
                 let $searchString = data.data.city;
                 let urlEncodedSearchString = encodeURIComponent($searchString);
                 if (!category) {
-                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
                         })
                 } else {
-                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", function () {
             })
         } else {
             let urlEncodedSearchString2 = encodeURIComponent(zipcode);
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString2)
+            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString2)
                 .then(function (response) {
                     newsContainer.innerHTML = renderNews(response.data.articles);
                     newsData = response.data.articles;
@@ -90,13 +90,13 @@ window.addEventListener("DOMContentLoaded", function () {
     let geoNews = function ($newsByGeo) {
         let urlEncodedSearchString = encodeURIComponent($newsByGeo)
         if (!category) {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                 .then(function (response) {
                     weatherContainer.innerHTML = renderNews(response.data.articles);
                     newsData = response.data.articles;
                 })
         } else {
-            axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                 .then(function (response) {
                     weatherContainer.innerHTML = renderNews(response.data.articles);
                     newsData = response.data.articles;
@@ -144,17 +144,17 @@ function refactorButtons(array) {
             e.preventDefault();
             category = e.target.value;
             let code = document.querySelector("#search_bar").value;
-            axios.get(`http://ZiptasticAPI.com/${code}`).then(data => {
+            axios.get(`https://ZiptasticAPI.com/${code}`).then(data => {
                 let $searchString = data.data.city;
                 let urlEncodedSearchString = encodeURIComponent($searchString)
                 if (!category) {
-                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
+                    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
                         })
                 } else {
-                    axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
+                    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
