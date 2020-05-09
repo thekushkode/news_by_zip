@@ -21,17 +21,6 @@ window.addEventListener("DOMContentLoaded", function () {
     newsContainer.innerHTML = renderSavedNews(parsedNews);
 });
 
-// function removeFromNewsList(url) {
-//     let newslistJSON = localStorage.getItem("newslist");
-//     let newslist = JSON.parse(newslistJSON);
-//     let index = newslist.findIndex(obj => {
-//         return obj.url === url
-//     })
-//     newslist.splice(index, 1);
-//     newslistJSON = JSON.stringify(newslist);
-//     localStorage.setItem("newslist", newslistJSON);
-//     newsContainer.innerHTML = renderSavedMovies(newslist);
-// };
 
 function removeFromNewsList(index) {
     let newslistJSON = localStorage.getItem("newslist");

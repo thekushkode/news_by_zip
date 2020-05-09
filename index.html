@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta keywords="news, local news, news near me, new by zip, zip news">
+    <meta description="ZipNews is a news website with local and late breaking news!">
     <title>News By Zip</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -120,16 +125,21 @@
                     <span class="navbar-brand mb-0 ml-3 h1">Suggested Stories</span>
                     <span style="margin-right: 20px;">
                         <i class="fas fa-sun fa-3x" type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModalLong">
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            data-target="#exampleModal">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true"></span>
+                                            </button>
+                                        </div>
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-12 results">
                                                     <div class="weather-container row">
-                                    
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +151,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </i>Get Weather
+                        </i>Weather
                     </span>
                 </nav>
             </div>
