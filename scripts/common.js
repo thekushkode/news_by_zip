@@ -50,10 +50,10 @@ window.addEventListener("DOMContentLoaded", function () {
         } else {
             let urlEncodedSearchString2 = encodeURIComponent(zipcode);
             axios.get(`http://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString2)
-            .then(function (response) {
-                newsContainer.innerHTML = renderNews(response.data.articles);
-                newsData = response.data.articles;
-            })
+                .then(function (response) {
+                    newsContainer.innerHTML = renderNews(response.data.articles);
+                    newsData = response.data.articles;
+                })
         }
     });
 });

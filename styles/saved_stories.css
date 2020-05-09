@@ -173,3 +173,7 @@ option {
 #navvy {
     background-color: white !important;
 }
+
+.footer-container {
+    display: flex;
+}
