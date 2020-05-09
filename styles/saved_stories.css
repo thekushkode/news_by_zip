@@ -51,10 +51,6 @@ h2 {
     letter-spacing: 2px;
 }
 
-#ziplogo {
-    font-size: 29px;
-}
-
 #search-form {
     display: flex;
     flex-direction: row;
@@ -160,10 +156,6 @@ option {
     justify-content: center;
     margin: 10px 0 20px 0;
 }
-
-/* #twenty_percent {
-    width: 200px;
-  } */
 
 .flexy {
     display: flex;

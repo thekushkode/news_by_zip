@@ -1,6 +1,7 @@
 const weatherContainer = document.querySelector(".weather-container");
 const locationContainer = document.querySelector(".locationNews-container");
 let weatherData;
+let myWeatherData;
 let locationCity;
 let newsLocationData;
 const symbolArray = ['KO', 'GOOGL', 'AAPL', 'TSLA', 'DAL'];
@@ -30,15 +31,15 @@ $(function () {
     let locationData;
     axios.get(`https://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
-            weatherData = data.data.current;
-            weatherContainer.innerHTML = renderWeather(weatherData);
+            myWeatherData = data.data.current;
+            weatherContainer.innerHTML = renderWeather(myWeatherData);
         })
     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
         .then(data => {
             locationData = data.data.articles;
             console.log(locationData);
             locationContainer.innerHTML = renderLocationNews(locationData);
-            newsLocationData = response.data.articles;
+            newsLocationData = data.data.articles;
         })
 })
 
@@ -61,11 +62,11 @@ const renderLocationNews = function (newsLocationArray) {
 
 const renderWeather = function (data) {
     for (const property in weatherData) {
-        return x = `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div>
+        return `<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Temp: ${weatherData["temperature"]}</h5>
+                <p class="card-title">Temp: ${weatherData["temperature"]}</p>
                 <p class="card-text">${weatherData["weather_descriptions"][0]}</p>
                 <p class="card-text">Precipitation: ${weatherData["precip"]}%</p>
                 <p class="card-text">Humidity: ${weatherData["humidity"]}</p>
