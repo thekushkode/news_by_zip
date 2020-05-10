@@ -197,3 +197,9 @@ option {
 .icon {
   background-color: white;
 }
+
+#social {
+  display: flex;
+  justify-content: space-between;
+}
+
