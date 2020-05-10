@@ -1,55 +1,35 @@
 const weatherContainer = document.querySelector(".weather-container");
 const locationContainer = document.querySelector(".locationNews-container");
 let weatherData;
-let myWeatherData;
 let locationCity;
 let newsLocationData;
+let locationData;
 const symbolArray = ['KO', 'GOOGL', 'AAPL', 'TSLA', 'DAL'];
+const socialLinks = document.querySelector(".socialIG");
 
-// const geoLocation = function () {
-//     axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
-//         .then(data => {
-//             locationCity = data.data["geoplugin_city"];
-//             console.log(locationCity);
-//         })
-// }
-// let $locationString = geoLocation();
-// let encodedString = encodeURIComponent($locationString);
-// console.log(encodedString);
-// console.log(geoLocation());
-
-$(function () {
-    const geoLocation = function () {
-        axios.get("https://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
-            .then(data => {
-                locationCity = data.data["geoplugin_city"];
-                console.log(locationCity);
-                return locationCity;
-            })
-    }
-    let $locationString = geoLocation();
-    let encodedString = encodeURIComponent($locationString);
-    let locationData;
-    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString}`)
+const geoLocation = function () {
+    axios.get("http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx")
         .then(data => {
-            locationData = data.data.articles;
-            console.log(locationData);
-            locationContainer.innerHTML = renderLocationNews(locationData);
-            newsLocationData = data.data.articles;
+            locationCity = data.data["geoplugin_city"];
+            let encodedString4 = encodeURIComponent(locationCity)
+            axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=${encodedString4}`)
+                .then(data => {
+                locationData = data.data.articles;
+                locationContainer.innerHTML = renderLocationNews(locationData);
+                newsLocationData = locationData;
+                })
         })
-})
+}
 
 $(function () {
+    geoLocation();
+    });
     axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
-            console.log(data);
             weatherData = data.data.current;
-            console.log(weatherData);
             weatherContainer.innerHTML = renderWeather(weatherData);
         });
 });
-
-
 
 const renderLocationNews = function (newsLocationArray) {
     let newsLocationHtmlArray = newsLocationArray.map(function (currentStory, i) {
@@ -66,24 +46,6 @@ const renderLocationNews = function (newsLocationArray) {
     });
     return newsLocationHtmlArray.join("");
 };
-
-
-// const renderWeather = function (data) {
-//     for (const property in weatherData) {
-//         return `<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
-//         <div class="card d-flex" style:"width: 100%;">
-//             <img src=${weatherData["weather_icons"][0]} id="0" class="card-img-top flex-fill">
-//             <div class="card-body">
-//                 <p class="card-title">Temp: ${weatherData["temperature"]}</p>
-//                 <p class="card-text">${weatherData["weather_descriptions"][0]}</p>
-//                 <p class="card-text">Precipitation: ${weatherData["precip"]}%</p>
-//                 <p class="card-text">Humidity: ${weatherData["humidity"]}</p>
-//                 <p class="card-text">Wind Speed: ${weatherData["wind_speed"]}mph</p>
-//             </div>
-//         </div>
-//     </div>`
-//     };
-// };
 
 const renderWeather = function (data) {
     for (const property in weatherData) {
