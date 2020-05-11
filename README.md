@@ -17,22 +17,24 @@ GeoLocation API- returns a web visitors location based on ip address
 
 >>>>>>>>>> Robert >>>>>>>>>>>>>>
 
-What it does/functionality 
+What it does/functionality
+    	***used axios for our .get() calls.
 
-1.) Search News BY ZipCode 
+1.) Search News BY ZipCode (news api + zipcode api)
 	-Behind the scenes an AXIOS get request is then made to our Ziptastic API and a city is retrieved from that zipcode. Then another get request is made to newsapi using by putting that city name(our output from our last get request) into their search endpoint and finally our webpage will load with news articles based on the city  
-2.) Search By Button
-3.) Custom Search
-4.) Suggested Stories based on user's location
+2.) Search By Category Button (news api)
+3.) Custom Search (news api)
+4.) Suggested Stories based on user's location (news api + ip address api)
 5.) Save Stories / Remove Stories from list
-6.) Get Local Weather
-7.) Stocks Ticker - another api is used for our ticker to keep our site up to date about stocks
+6.) Get Local Weather (weather api)
+7.) Stocks Ticker - stock api is used for our ticker to keep our site up to date about stocks
 8.) Email Contact Form
 
 CSS & Layout
 
 Bootstrap: nav bar, buttons, modal and our responsive layout
 Flex Boxes: to align our content properly
+FontAwesome for icons
 I-Frames: to hold our google videos
 Ticker: really cool!
 
