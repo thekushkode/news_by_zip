@@ -1,5 +1,5 @@
 # news_by_zip 
-test
+
 Contributors:
 Parker - axios & render functions, videos, css
 Princeton - html, google api, suggested stories, etc
