@@ -16,7 +16,7 @@
 
 <body>
     <a name="top"></a>
-    <header class="sticky-top" style="background-color: white;">
+    <header style="background-color: white;" class="sticky-top">
         <div class="ticker-wrap">
             <div class="ticker">
                 <div class="ticker__item">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <nav id="navvy" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a id="title" class="navbar-brand font-weight-bold font-italic" style="font-size: 3em;"
+            <a id="title" class="navbar-brand font-weight-bold font-italic" style="font-size: 4em;"
                 href="index.html">ZipNews</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link badge-pill badge-warning" href="saved_stories.html">Saved Stories</a>
+                        <a class="nav-link badge-pill badge-warning" href="saved_stories.html"
+                            style="margin-top: 5px test-align: center;">Saved Stories</a>
+                    </li>
+                    <li class="nav-item active">
+                        <span>
+                            <i id="b8" type="button" class="fas fa-exclamation-circle" value="breaking news"
+                                style="font-size: 3em; margin-left: 10px; margin-bottom: 5px;"></i>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -169,12 +176,19 @@
             </div>
         </div>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#top">ZipNews</a>
+            <div>
+
+                <a class="navbar-brand" href="#top">ZipNews</a>
+                <div style="width:100%;height:0;padding-bottom:70%;position:relative;">
+                    <iframe src="https://giphy.com/embed/n2IPMYMthV0m4" width="100%" height="100%"
+                        style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+            </div>
             <div id="social">
-                <a href="#top" style="font-size: 3em;"><i class="fab fa-instagram"></i></a>
-                <a href="#top" style="font-size: 3em;"><i class="fab fa-facebook-square"></i></a>
-                <a href="#top" style="font-size: 3em;"><i class="fab fa-twitter-square"></i></a>
-                <a href="#top" style="font-size: 3em;"><i class="fab fa-linkedin"></i></a>
+                <a href="#top" style="font-size: 3em;"><i class="social fab fa-instagram"></i></a>
+                <a href="#top" style="font-size: 3em;"><i class="social fab fa-facebook-square"></i></a>
+                <a href="#top" style="font-size: 3em;"><i class="social fab fa-twitter-square"></i></a>
+                <a href="#top" style="font-size: 3em;"><i class="social fab fa-linkedin"></i></a>
             </div>
             <i class="far fa-copyright">ZipNews Inc.</i>
         </nav>

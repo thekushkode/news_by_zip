@@ -23,7 +23,6 @@ const geoLocation = function () {
 
 $(function () {
     geoLocation();
-    });
     axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=Atlanta&units=f`)
         .then(data => {
             weatherData = data.data.current;

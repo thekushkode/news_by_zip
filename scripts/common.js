@@ -82,8 +82,9 @@ const b4 = document.querySelector("#b4");
 const b5 = document.querySelector("#b5");
 const b6 = document.querySelector("#b6");
 const b7 = document.querySelector("#b7");
+const b8 = document.querySelector("#b8");
 
-const buttonsArray = [b1, b2, b3, b4, b5, b6, b7];
+const buttonsArray = [b1, b2, b3, b4, b5, b6, b7, b8];
 
 function refactorButtons(array) {
     array.map(button => {
@@ -93,7 +94,7 @@ function refactorButtons(array) {
             let code = document.querySelector("#search_bar").value;
             axios.get(`https://ZiptasticAPI.com/${code}`).then(data => {
                 let $searchString = data.data.city;
-                let urlEncodedSearchString = encodeURIComponent($searchString)
+                let urlEncodedSearchString = encodeURIComponent($searchString);
                 if (!category) {
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                         .then(function (response) {
