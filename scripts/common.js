@@ -88,20 +88,32 @@ const buttonsArray = [b1, b2, b3, b4, b5, b6, b7, b8];
 
 function refactorButtons(array) {
     array.map(button => {
+        console.log(button);
         button.addEventListener("click", e => {
             e.preventDefault();
             category = e.target.value;
+            console.log(category);
             let code = document.querySelector("#search_bar").value;
             axios.get(`https://ZiptasticAPI.com/${code}`).then(data => {
                 let $searchString = data.data.city;
                 let urlEncodedSearchString = encodeURIComponent($searchString);
-                if (!category) {
+                if (category === "breaking-news") {
+                    console.log(category);
+                    axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=breaking%20news`)
+                        .then(function (response) {
+                            newsContainer.innerHTML = renderNews(response.data.articles);
+                            newsData = response.data.articles;
+                        })
+                }
+                else if (!category) {
+                    
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
                         })
                 } else {
+                    console.log(category);
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
