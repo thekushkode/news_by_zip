@@ -2,11 +2,12 @@ const newsContainer = document.querySelector(".news-container");
 const myForm = document.querySelector("#search-form");
 let newsData;
 
-
+//function to test weather someone has enter a zipcode. used to show the proper results for a search query.
 function hasNumber(myString) {
     return /^\d{5}$/.test(myString);
 }
 
+//creates an f'string of html for our news card that will be appended to our newsContainer. called in our doc ready function in our if-else statement
 const renderNews = function (newsArray) {
     let newsHtmlArray = newsArray.map(function (currentStory, i) {
         return `<div class="movie col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -24,21 +25,22 @@ const renderNews = function (newsArray) {
     return newsHtmlArray.join("");
 };
 
+//doc-ready function adds event listener to our #search_bar, preventsDefault().
 window.addEventListener("DOMContentLoaded", function () {
     myForm.addEventListener("submit", function (e) {
         e.preventDefault();
         let zipcode = document.querySelector("#search_bar").value;
-        if (hasNumber(zipcode)) {
+        if (hasNumber(zipcode)) { //if (call our hasNumber(); give the news based on zipcode)
             axios.get(`https://ZiptasticAPI.com/${zipcode}`).then(data => {
                 let $searchString = data.data.city;
                 let urlEncodedSearchString = encodeURIComponent($searchString);
-                if (!category) {
+                if (!category) { //if not a category then search for the custom entry
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
                             newsData = response.data.articles;
                         })
-                } else {
+                } else { //search for city + category
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
@@ -46,7 +48,7 @@ window.addEventListener("DOMContentLoaded", function () {
                         })
                 }
             })
-        } else {
+        } else {  //custom search
             let urlEncodedSearchString2 = encodeURIComponent(zipcode);
             axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString2)
                 .then(function (response) {
@@ -57,6 +59,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//saves stories to local storage. creates newlist,if empty, push the news story to it.
 function saveToNewsList(index) {
     let news = newsData[index];
     let newsListJSON = localStorage.getItem("newslist");
@@ -69,12 +72,14 @@ function saveToNewsList(index) {
     localStorage.setItem("newslist", newsListJSON);
 };
 
+//read story(); called in renderNews(); 
 const readStory = function (url) {
     window.location.assign(url);
 };
 
 let category;
 
+//grabs buttons
 const b1 = document.querySelector("#b1");
 const b2 = document.querySelector("#b2");
 const b3 = document.querySelector("#b3");
@@ -86,19 +91,17 @@ const b8 = document.querySelector("#b8");
 
 const buttonsArray = [b1, b2, b3, b4, b5, b6, b7, b8];
 
+//instead of writing an event listener for every button, created an array of buttons and function to assign listener to each one using .map()
 function refactorButtons(array) {
     array.map(button => {
-        console.log(button);
         button.addEventListener("click", e => {
             e.preventDefault();
             category = e.target.value;
-            console.log(category);
             let code = document.querySelector("#search_bar").value;
             axios.get(`https://ZiptasticAPI.com/${code}`).then(data => {
                 let $searchString = data.data.city;
                 let urlEncodedSearchString = encodeURIComponent($searchString);
                 if (category === "breaking-news") {
-                    console.log(category);
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=breaking%20news`)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);
@@ -113,7 +116,6 @@ function refactorButtons(array) {
                             newsData = response.data.articles;
                         })
                 } else {
-                    console.log(category);
                     axios.get(`https://newsapi.org/v2/everything?apiKey=${newsApiKey}&q=` + urlEncodedSearchString + "%20" + category)
                         .then(function (response) {
                             newsContainer.innerHTML = renderNews(response.data.articles);

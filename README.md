@@ -1,5 +1,5 @@
 # news_by_zip 
-
+>>>>>>>>>> Parker >>>>>>>>>>>>>>
 Contributors:
 Parker - axios & render functions, videos, css
 Princeton - html, google api, suggested stories, etc
@@ -15,6 +15,7 @@ Newsapi - returned an array titled articles. In this array was an object that in
 Stocks API - return stock price info based on symbol
 GeoLocation API- returns a web visitors location based on ip address
 
+>>>>>>>>>> Robert >>>>>>>>>>>>>>
 
 What it does/functionality 
 
@@ -35,6 +36,7 @@ Flex Boxes: to align our content properly
 I-Frames: to hold our google videos
 Ticker: really cool!
 
+>>>>>>>>>> Princeton >>>>>>>>>>>>>>
 Challenges 
 
 Finding useful API's that gave us the data we needed/ accessibility of free API's w/o upgrade.
